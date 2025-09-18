@@ -237,3 +237,64 @@ section {
     margin-bottom: 10px;
     display: inline-block;
 }
+/* --- Add this entire block to the bottom of your style.css --- */
+/* --- Responsive Design & Media Queries --- */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+
+    /* --- General Layout --- */
+    section {
+        padding: 60px 20px; /* Reduce padding on smaller screens */
+    }
+
+    /* --- Typography --- */
+    .hero h1 {
+        font-size: 2.8rem; /* Make the main headline smaller */
+    }
+
+    h2 {
+        font-size: 2.2rem; /* Make other section headlines smaller */
+    }
+    
+    /* --- Grid Layouts --- */
+    /* This is the key part: it turns all multi-column grids into a single column */
+    .grid-3-col,
+    .grid-2-col,
+    .blog-grid {
+        grid-template-columns: 1fr; /* Stack everything in one column */
+        gap: 40px;
+    }
+
+    /* Make the solution section text-align center on mobile */
+    .section-solution {
+        text-align: center;
+    }
+    .solution-text {
+        text-align: left;
+    }
+    
+    /* --- Form Pages --- */
+    .form-box {
+        padding: 30px;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+}
+
+
+/* For small mobile phones */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .impact-stats {
+        flex-direction: column; /* Stack the impact numbers vertically */
+        gap: 40px;
+    }
+}
