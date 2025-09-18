@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GreenSense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="form-page-container">
+        <div class="form-box">
+            <a href="/" class="logo form-logo">
+    <img src="/images/logo.png" alt="GreenSense Logo" class="logo-img">
+</a>
+            <h2>Welcome Back</h2>
+            
+            <div id="message-box"></div>
+
+            <form id="login-form" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary form-btn">Login</button>
+            </form>
+            <p class="form-footer-text">Don't have an account? <a href="/register.html">Register here</a></p>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const messageBox = document.getElementById('message-box');
+        
+        // This script handles messages sent back from the server
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('error')) {
+                messageBox.className = 'message error';
+                if (params.get('error') === 'invalid') {
+                    messageBox.innerText = 'Invalid email or password.';
+                } else if (params.get('error') === 'empty') {
+                    messageBox.innerText = 'Please enter both email and password.';
+                }
+            }
+        });
+
+        // This script provides INSTANT feedback before submitting
+        loginForm.addEventListener('submit', (event) => {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            messageBox.innerText = ''; // Clear previous messages
+            
+            if (email === '' && password === '') {
+                event.preventDefault(); // Stop the form from sending
+                messageBox.className = 'message error';
+                messageBox.innerText = 'Please enter email and password.';
+            } else if (email === '') {
+                event.preventDefault();
+                messageBox.className = 'message error';
+                messageBox.innerText = 'Please enter an email.';
+            } else if (password === '') {
+                event.preventDefault();
+                messageBox.className = 'message error';
+                messageBox.innerText = 'Please enter a password.';
+            }
+        });
+    </script>
+</body>
+</html>

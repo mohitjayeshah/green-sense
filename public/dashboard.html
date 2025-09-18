@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GreenSense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar scrolled"> <div class="container">
+<a href="/" class="logo">GreenSense 🌳</a>
+            <div class="nav-actions">
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <h1 id="welcome-message">Welcome!</h1>
+        <p>This is your personal dashboard. More features will be added here soon.</p>
+    </main>
+    
+    <script>
+        // This script will run when the page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Ask our server for the logged-in user's data
+                const response = await fetch('/api/user');
+                
+                if (response.ok) {
+                    const userData = await response.json();
+                    // Update the welcome message with the user's name
+                    document.getElementById('welcome-message').innerText = `Welcome, ${userData.name}!`;
+                } else {
+                    // If anything goes wrong, redirect to login
+                    window.location.href = '/login.html';
+                }
+            } catch (error) {
+                console.error('Failed to fetch user data:', error);
+                window.location.href = '/login.html';
+            }
+        });
+    </script>
+</body>
+</html>
