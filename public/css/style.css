@@ -1,61 +1,71 @@
-/* --- Global Styles & Variables --- */
-:root {
-    --primary-green: #0A381F;
-    --accent-green: #4CAF50;
-    --text-dark: #333;
-    --text-light: #FFFFFF;
-    --bg-light: #f4f4f4;
-    --bg-white: #FFFFFF;
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Lato', sans-serif;
-    --border-color: #e0e0e0;
-}
-
+/* General Body Styles */
 body {
-    margin: 0;
-    font-family: var(--font-body);
-    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
+    margin: 0;
+    color: #333;
+    background-color: #fdfdfd;
 }
 
+/* Container */
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
+/* Typography */
 h1, h2, h3 {
-    font-family: var(--font-heading);
-    color: var(--primary-green);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
-p.section-intro {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    font-size: 1.1rem;
-    color: #555;
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
 }
 
-/* --- Navigation Bar --- */
+.btn-primary {
+    background-color: #2a9d8f;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #264653;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #2a9d8f;
+    border: 2px solid #2a9d8f;
+}
+
+.btn-secondary:hover {
+    background-color: #2a9d8f;
+    color: #fff;
+}
+
+/* Navbar */
 .navbar {
-    background: transparent;
+    background: #fff;
     padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .navbar .container {
@@ -64,237 +74,179 @@ p.section-intro {
     align-items: center;
 }
 
-.navbar .logo {
-    color: var(--text-light);
+.logo {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
-    transition: color 0.3s ease;
-    margin-right: auto; /* Pushes other items to the right */
+    color: #264653;
 }
 
-.navbar .nav-links {
+.nav-links {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-.navbar .nav-links li {
-    margin: 0 15px;
+.nav-links li {
+    margin-left: 2rem;
 }
 
-.navbar .nav-links a {
-    color: var(--text-light);
+.nav-links a {
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    color: #333;
+    font-weight: 700;
 }
 
-.navbar .nav-links a:hover {
-    color: var(--accent-green);
-}
-
-.navbar.scrolled .logo {
-    color: var(--primary-green);
-}
-
-.navbar.scrolled .nav-links a {
-    color: var(--text-dark);
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: 20px;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--accent-green);
-    color: var(--text-light);
-}
-
-.btn-primary:hover {
-    background-color: #45a049;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent-green);
-    color: var(--accent-green);
-    padding: 8px 20px;
-}
-
-.btn-secondary:hover {
-    background-color: var(--accent-green);
-    color: var(--text-light);
-}
-
-
-/* --- Other Page Styles --- */
-/* (The rest of your page styles remain below) */
+/* Hero Section */
 .hero {
-    background: linear-gradient(rgba(10, 56, 31, 0.7), rgba(10, 56, 31, 0.7)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071') no-repeat center center/cover;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #f4a261;
+    color: #fff;
+    padding: 6rem 0;
     text-align: center;
-    color: var(--text-light);
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
-}
-section {
-    padding: 80px 0;
-    text-align: center;
-}
-.grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-.grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.section-challenge, .section-who-we-serve, .section-insights { background-color: var(--bg-light); }
-.section-solution { background-color: var(--bg-white); text-align: left; }
-.feature-box { text-align: center; padding: 20px; }
-.feature-box svg { width: 50px; height: 50px; color: var(--accent-green); margin-bottom: 15px; }
-.feature-box h3 { font-size: 1.25rem; }
-.solution-text ul { list-style: none; padding: 0; }
-.solution-text li { margin-bottom: 15px; font-size: 1.1rem; }
-.solution-text b { color: var(--primary-green); }
-.solution-img img { width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.section-impact { background: var(--primary-green); color: var(--text-light); }
-.section-impact h2, .section-impact p { color: var(--text-light); }
-.impact-stats { display: flex; justify-content: space-around; margin-top: 40px; }
-.stat-number { font-family: var(--font-heading); font-size: 3rem; font-weight: bold; }
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left; }
-.blog-card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.blog-card .card-tag { display: inline-block; background: var(--accent-green); color: var(--text-light); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-bottom: 15px; font-weight: bold; }
-.blog-card h3 { margin-top: 0; }
-.blog-card a { color: var(--accent-green); text-decoration: none; font-weight: bold; }
-.footer { background: var(--text-dark); color: var(--text-light); text-align: center; padding: 20px 0; }
-.form-page-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: var(--bg-light); }
-.form-box { background-color: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
-.form-logo { color: var(--primary-green) !important; font-size: 1.8rem; text-decoration: none; margin-bottom: 10px; display: inline-block; }
-.form-group { margin-bottom: 20px; text-align: left; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-.form-group input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; box-sizing: border-box; }
-.form-btn { width: 100%; padding: 12px; font-size: 1.1rem; margin-top: 10px; }
-.form-footer-text { margin-top: 20px; color: #666; }
-.form-footer-text a { color: var(--accent-green); text-decoration: none; font-weight: bold; }
-
-/* --- Add to the bottom of style.css --- */
-/* --- Dashboard Page Styles --- */
-.dashboard-container {
-    padding-top: 120px; /* Add space below the fixed navbar */
-    text-align: center;
-    max-width: 800px;
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-/* --- Add to the bottom of style.css --- */
-/* --- Message Box Styles --- */
-.message {
-    padding: 15px;
-    margin-bottom: 20px;
+/* Sections */
+main section {
+    padding: 4rem 0;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+}
+
+/* Grid Layouts */
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Feature Box */
+.feature-box {
+    text-align: center;
+}
+
+.feature-box svg {
+    width: 50px;
+    height: 50px;
+    color: #2a9d8f;
+    margin-bottom: 1rem;
+}
+
+/* Solution Section */
+.solution-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.solution-text li {
+    margin-bottom: 1rem;
+}
+
+/* Impact Section */
+.section-impact {
+    background-color: #264653;
+    color: #fff;
+}
+
+.impact-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* Insights Section */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.blog-card {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
     border-radius: 5px;
-    font-weight: bold;
-}
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
 }
 
-/* Find and replace any existing .logo or .form-logo rules with this */
-
-.logo {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    margin-right: auto; /* Pushes other items to the right */
-}
-
-/* This rule makes the text logo dark when the navbar is scrolled */
-.navbar.scrolled .logo {
-    color: var(--primary-green);
-}
-
-/* This rule styles the BIG logo on the login/register pages */
-.form-logo {
-    color: var(--primary-green) !important;
-    font-size: 1.8rem;
-    text-decoration: none;
-    margin-bottom: 10px;
+.card-tag {
+    background-color: #e9c46a;
+    color: #333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
     display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
-/* --- Add this entire block to the bottom of your style.css --- */
-/* --- Responsive Design & Media Queries --- */
 
-/* For tablets and smaller devices */
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* --- Responsive Styles --- */
+
 @media (max-width: 768px) {
-
-    /* --- General Layout --- */
-    section {
-        padding: 60px 20px; /* Reduce padding on smaller screens */
-    }
-
-    /* --- Typography --- */
-    .hero h1 {
-        font-size: 2.8rem; /* Make the main headline smaller */
+    h1 {
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: 2.2rem; /* Make other section headlines smaller */
+        font-size: 2rem;
     }
-    
-    /* --- Grid Layouts --- */
-    /* This is the key part: it turns all multi-column grids into a single column */
+
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin: 0 0.5rem;
+    }
+
+    .nav-actions {
+        margin-top: 1rem;
+    }
+
     .grid-3-col,
     .grid-2-col,
     .blog-grid {
-        grid-template-columns: 1fr; /* Stack everything in one column */
-        gap: 40px;
-    }
-
-    /* Make the solution section text-align center on mobile */
-    .section-solution {
-        text-align: center;
-    }
-    .solution-text {
-        text-align: left;
-    }
-    
-    /* --- Form Pages --- */
-    .form-box {
-        padding: 30px;
-        box-shadow: none;
-        border: 1px solid var(--border-color);
-    }
-}
-
-
-/* For small mobile phones */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
+        grid-template-columns: 1fr;
     }
 
     .impact-stats {
-        flex-direction: column; /* Stack the impact numbers vertically */
-        gap: 40px;
+        flex-direction: column;
+    }
+
+    .impact-stats > div {
+        margin-bottom: 2rem;
     }
 }
